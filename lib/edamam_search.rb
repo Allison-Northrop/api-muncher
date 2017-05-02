@@ -1,8 +1,7 @@
 require 'HTTParty'
 class EdamamSearch
 
-  BASE_URL = 'https://api.edamam.com/search?app_id=0da2202a&app_key=6742a524d0f9cb891fa96ab03339a940'
-
+  BASE_URL = 'https://api.edamam.com/search'
   # attr_reader :search
   #
   # def initialize(search)
@@ -10,7 +9,7 @@ class EdamamSearch
   # end
 
   def self.all_recipes(search)
-    url ="#{BASE_URL}/token=#{ENV["EDAMAM_TOKEN"]}"
+    url ="#{BASE_URL}/#{ENV["EDAMAM_ID"]}/#{ENV["EDAMAM_TOKEN"]}/q=#{search}"
     response = HTTParty.get(url).parsed_response
 
 
