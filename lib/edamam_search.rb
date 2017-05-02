@@ -1,6 +1,7 @@
+require 'HTTParty'
 class EdamamSearch
 
-  BASE_URL = "https://api.edamam.com"
+  BASE_URL = "https://api.edamam.com/search"
 
   attr_reader :search
 
