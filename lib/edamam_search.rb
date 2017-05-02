@@ -9,7 +9,7 @@ class EdamamSearch
   # end
 
   def self.all_recipes(search)
-    url ="#{BASE_URL}/#{ENV["EDAMAM_ID"]}/#{ENV["EDAMAM_TOKEN"]}/q=#{search}"
+    url ="#{BASE_URL}?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_TOKEN"]}&q=#{search}"
     response = HTTParty.get(url).parsed_response
 
 
