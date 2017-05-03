@@ -1,11 +1,9 @@
 require 'HTTParty'
-class EdamamSearch
+class Recipe
 
   BASE_URL = 'https://api.edamam.com/search'
-  # attr_reader :search
-  #
-  # def initialize(search)
-  #   @search = search
+
+  # def initialize()
   # end
 
   def self.all_recipes(search)

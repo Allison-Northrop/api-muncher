@@ -1,11 +1,11 @@
 require 'test_helper'
 
-describe "EdamamSearch" do
+describe "Recipe" do
 
   describe "self.all_recipes" do
     # it "takes a search"
     #   search = "salad"
-    #   a = EdamamSearch.all_recipes(search)
+    #   a = Recipe.all_recipes(search)
     #   a.search.must_equal "salad"
     # end
 

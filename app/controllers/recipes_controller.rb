@@ -3,9 +3,12 @@ class RecipesController < ApplicationController
   end
 
   def search
-  # @recipes = EdamamSearch.all_recipes(params[:search])
+    @recipes = Recipe.all_recipes(params[:search])
+  end
+
+  def index
   end
 
 # need a controller method to bring up the form
 # and then a controller method to submit form
-end 
+end
