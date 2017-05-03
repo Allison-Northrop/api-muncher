@@ -1,14 +1,16 @@
 require 'test_helper'
 
-describe EdamamSearch do
+describe "EdamamSearch" do
 
-  describe "initialize" do
+  describe "self.all_recipes" do
     it "takes a search"
-      search = "hummus test search"
-      edamam_search = EdamamSearch.new(search)
-      edamam_search.search.must_equal search
+
+
     end
 
     it "requires a search before searching" do
     end
+
+    it "returns a hash of recipes" do
+    end 
   end
