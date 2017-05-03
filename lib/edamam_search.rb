@@ -22,6 +22,3 @@ class EdamamSearch
   end
 
 end
-
-a = EdamamSearch.all_recipes("salad")
-print a
