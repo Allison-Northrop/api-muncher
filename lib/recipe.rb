@@ -32,4 +32,13 @@ class Recipe
     #here I need to return all the recipe objects
   end
 
+  def self.a_recipe(search)
+    url ="#{BASE_URL}?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_TOKEN"]}&q=#{search}"
+
+    response = HTTParty.get(url).parsed_response["hits"][0]
+    the_recipe = Recipe.new({uri: response["recipe"]["uri"].split("_").last, label: response["recipe"]["label"], image: response["recipe"]["image"], url: response["recipe"]["url"], health_labels: response["recipe"]["healthLabels"], ingredient_lines: response["recipe"]["ingredientLines"]})
+    return the_recipe
+
+  end
+
 end

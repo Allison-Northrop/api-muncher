@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   end
   #shows the indivudual recipe
   def show_recipe
-    @recipe = Recipe.find(params[:uri])
+    @recipe = Recipe.a_recipe(params[:uri])
   end
 
 # need a controller method to bring up the form
