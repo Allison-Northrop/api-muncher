@@ -23,8 +23,9 @@ class Recipe
     #response getss the url and feeds it to the browser through HTTParty
     response = HTTParty.get(url).parsed_response
     response["hits"].each do |recipe_object|
-      recipes << Recipe.new({uri: recipe_object["recipe"]["uri"], label: recipe_object["recipe"]["label"], image: recipe_object["recipe"]["image"], url: recipe_object["recipe"]["url"], health_labels: recipe_object["recipe"]["healthLabels"], ingredient_lines: recipe_object["recipe"]["ingredientLines"]})
-      #I think it's already a string so I don't have to convert it
+      recipes << Recipe.new({uri: recipe_object["recipe"]["uri"].split("_").last, label: recipe_object["recipe"]["label"], image: recipe_object["recipe"]["image"], url: recipe_object["recipe"]["url"], health_labels: recipe_object["recipe"]["healthLabels"], ingredient_lines: recipe_object["recipe"]["ingredientLines"]})
+
+      #the uri is split after the underscore for the unique identifier
 
     end
     return recipes
