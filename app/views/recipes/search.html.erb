@@ -1,2 +1,5 @@
 <h1>Search Path</h1>
-<%= @recipes %>
+<% @recipes.each do |recipe|  %>
+  <li><%= recipe.label %>
+    <%= link_to image_tag(recipe.image) %></li>
+  <% end %>
