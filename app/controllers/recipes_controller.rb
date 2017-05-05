@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
+  #just the search page itself
   def search_show
   end
-
+  #gets the actual info from the API 
   def search
     @recipes = Recipe.all_recipes(params[:search])
   end
