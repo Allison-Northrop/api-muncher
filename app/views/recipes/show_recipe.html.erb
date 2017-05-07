@@ -1,1 +1,11 @@
-<h1>Show a recipe page</h1>
+<h1><%= @recipe.label %></h1>
+<div><%= image_tag(@recipe.image) %></div></br>
+<p><%= link_to "#{@recipe.url}", @recipe.url, target: :_blank  %></p>
+
+<div><% @recipe.ingredient_lines.each do |ingredient_string| %>
+    <li><%= ingredient_string %></li>
+  <% end %></div>
+
+  <div><% @recipe.health_labels.each do |health_label| %>
+      <%= health_label %>
+    <%end%></div>
