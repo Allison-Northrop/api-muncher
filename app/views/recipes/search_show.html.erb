@@ -1,9 +1,17 @@
-<h1>Recipes Search Page</h1>
-<h3>Gluten Freedom</h3>
-<section>
-  <%= form_tag search_path, method: :get do %>
-    <%= label_tag :search %>
-    <%= text_field_tag :search %>
-    <%= submit_tag "search", class: "button" %>
-  <% end %>
-</section>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gluten Freedom</title>
+  </head>
+  <body>
+    <h1>Gluten Freedom</h1>
+
+    <section>
+      <%= form_tag search_path, method: :get do %>
+        <%= label_tag :search %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "search", class: "button" %>
+      <% end %>
+    </section>
+  </body>
+</html>
