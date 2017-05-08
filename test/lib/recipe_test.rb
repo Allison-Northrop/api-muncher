@@ -3,7 +3,7 @@ require 'test_helper'
 describe "Recipe" do
 
   describe "initialize" do
-    
+
   end
 
   describe "self.all_recipes" do
