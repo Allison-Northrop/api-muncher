@@ -12,10 +12,10 @@
     </div>
 
     <div class="row">
-    <section class = "large-6 columns text-center">
+    <section class = "large-12 columns text-center">
       <%= form_tag search_path, method: :get do %>
-        <%= text_field_tag :search, nil, placeholder: "Free yourself from the Gluten"  %>
-        <%= submit_tag "search", class: "button" %>
+        <section class ="search_bar"><%= text_field_tag :search, nil, placeholder: "Free yourself from the Gluten"%></section>
+        <section class ="search_button"><%= submit_tag "search", class: "button" %></section>
       <% end %>
     </section>
   </body>
