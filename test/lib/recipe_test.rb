@@ -30,14 +30,21 @@ describe "Recipe" do
     end
 
     it "raises an error if the search result is invalid or doesn't have results" do
-      VCR.use_cassette("recipes") do
+      VCR.use_cassette("recipe") do
         proc { Recipe.all_recipes() }.must_raise ArgumentError
       end
     end
   end
 
   describe "a_recipe" do
+    it "shows an individual recipe" do
+      #not sure why this test isn't passing 
+      VCR.use_cassette("recipe") do
+        indv_recipe = Recipe.a_recipe("http://www.edamam.com/ontologies/edamam.owl#recipe_e2549c3c0b77ba275fe64e623a4daea2")
+        indv_recipe.label.must_equal "Pizza Pizzas"
+      end
+    end
 
-  end 
+  end
 
 end

@@ -3,6 +3,22 @@
   margin-left: 1%;
 }
 
-.instructions {
-    background-color: white;
+.recipe_details {
+  background-color: white;
+}
+
+li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+.health_labels {
+  font-family: 'Shrikhand', cursive;
+  color: #72AA97;
+  display: inline-block;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+
 }
