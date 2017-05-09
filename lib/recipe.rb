@@ -30,6 +30,7 @@ class Recipe
       end
       return recipes
     end
+    
     else
       raise ArgumentError.new("Whoops! There are no Gluten Free Recipes with that Search")
     end

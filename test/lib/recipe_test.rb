@@ -23,21 +23,17 @@ describe "Recipe" do
   end
 
   describe "self.all_recipes" do
-    it "takes a search" do
+    it "takes a search and returns recipes" do
       VCR.use_cassette("recipes") do
         Recipe.all_recipes("chicken")
       end
     end
 
-    it "requires a search before searching" do
-    end
-
-    it "returns Recipe objects" do
-    end
-
-    it "deals with a bad search" do
-      # or should this go in the controller test?
+    it "raises an error if the search result is invalid or doesn't have results" do
+      VCR.use_cassette("recipes") do
+        proc { Recipe.all_recipes() }.must_raise ArgumentError
+      end
     end
   end
 
-end
+end 
