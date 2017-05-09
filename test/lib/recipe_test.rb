@@ -36,4 +36,8 @@ describe "Recipe" do
     end
   end
 
-end 
+  describe "a_recipe" do
+
+  end 
+
+end

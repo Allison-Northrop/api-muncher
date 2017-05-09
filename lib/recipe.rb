@@ -1,8 +1,7 @@
 require 'HTTParty'
+
 class Recipe
-
   BASE_URL = 'https://api.edamam.com/search'
-
   attr_reader :uri, :label, :image, :url, :health_labels, :ingredient_lines
 
   def initialize(hash_params)
@@ -30,12 +29,10 @@ class Recipe
       end
       return recipes
     end
-    
+
     else
       raise ArgumentError.new("Whoops! There are no Gluten Free Recipes with that Search")
     end
-    # return recipes
-    #here I need to return all the recipe objects
   end
 
   def self.a_recipe(search)
@@ -44,5 +41,6 @@ class Recipe
     response = HTTParty.get(url).parsed_response["hits"][0]
     the_recipe = Recipe.new({uri: response["recipe"]["uri"].split("_").last, label: response["recipe"]["label"], image: response["recipe"]["image"], url: response["recipe"]["url"], health_labels: response["recipe"]["healthLabels"], ingredient_lines: response["recipe"]["ingredientLines"]})
     return the_recipe
-
   end
+
+end
