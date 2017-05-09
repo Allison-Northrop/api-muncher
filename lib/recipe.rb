@@ -14,12 +14,13 @@ class Recipe
     @ingredient_lines = hash_params[:ingredient_lines]
   end
 
-  def self.all_recipes(search)
+  def self.all_recipes(search, from)
     #the recipes returned after the search
     #this hash will have the name of the recipe, the photo link *and maybe link to
+
     recipes = []
     #takes the base url, the app id, the app key(token), the search(fromt the user params) and adds the gluten free params
-    url ="#{BASE_URL}?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_TOKEN"]}&q=#{search}&healthLabels=Gluten-Free"
+    url ="#{BASE_URL}?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_TOKEN"]}&q=#{search}&healthLabels=Gluten-Free&from=#{from}&to=#{from.to_i + 10}"
     #response getss the url and feeds it to the browser through HTTParty
     response = HTTParty.get(url).parsed_response
     response["hits"].each do |recipe_object|
