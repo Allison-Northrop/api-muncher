@@ -22,13 +22,18 @@ class Recipe
     url ="#{BASE_URL}?app_id=#{ENV["EDAMAM_ID"]}&app_key=#{ENV["EDAMAM_TOKEN"]}&q=#{search}&healthLabels=Gluten-Free"
     #response getss the url and feeds it to the browser through HTTParty
     response = HTTParty.get(url).parsed_response
-    response["hits"].each do |recipe_object|
-      recipes << Recipe.new({uri: recipe_object["recipe"]["uri"].split("_").last, label: recipe_object["recipe"]["label"], image: recipe_object["recipe"]["image"], url: recipe_object["recipe"]["url"], health_labels: recipe_object["recipe"]["healthLabels"], ingredient_lines: recipe_object["recipe"]["ingredientLines"]})
 
-      #the uri is split after the underscore for the unique identifier
-
+    if response["hits"] != 0
+      response["hits"].each do |recipe_object|
+        recipes << Recipe.new({uri: recipe_object["recipe"]["uri"].split("_").last, label: recipe_object["recipe"]["label"], image: recipe_object["recipe"]["image"], url: recipe_object["recipe"]["url"], health_labels: recipe_object["recipe"]["healthLabels"], ingredient_lines: recipe_object["recipe"]["ingredientLines"]})
+        #the uri is split after the underscore for the unique identifier
+      end
+      return recipes
     end
-    return recipes
+    else
+      raise ArgumentError.new("Whoops! There are no Gluten Free Recipes with that Search")
+    end
+    # return recipes
     #here I need to return all the recipe objects
   end
 
@@ -40,5 +45,3 @@ class Recipe
     return the_recipe
 
   end
-
-end
