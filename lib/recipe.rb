@@ -32,7 +32,7 @@ class Recipe
 
     else
       raise ArgumentError.new("Whoops! There are no Gluten Free Recipes with that Search")
-    end
+    # end
   end
 
   def self.a_recipe(search)
