@@ -8,9 +8,9 @@ describe "Recipe" do
 
   describe "self.all_recipes" do
     it "takes a search" do
-    #   search = "salad"
-    #   a = Recipe.all_recipes(search)
-    #   a.search.must_equal "salad"
+      VCR.use_cassette("recipes") do
+        Recipe.all_recipes("chicken")
+      end
     end
 
     it "requires a search before searching" do

@@ -22,6 +22,9 @@ VCR.configure do |config|
   config.filter_sensitive_data("<EDAMAM_TOKEN>") do
     ENV['EDAMAM_TOKEN']
   end
+  config.filter_sensitive_data("<EDAMAM_ID>") do
+    ENV['EDAMAM_ID']
+  end
 end
 
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
