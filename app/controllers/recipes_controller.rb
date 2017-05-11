@@ -1,3 +1,5 @@
+require_dependency '../../lib/recipe.rb'
+
 class RecipesController < ApplicationController
   #just the search page itself
   def search_show
